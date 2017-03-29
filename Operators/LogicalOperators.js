@@ -19,9 +19,8 @@ function OR()
 function NOT()
 {
    var id1 = parseInt(document.getElementById("demo1").value);
-   var id2 = parseInt(document.getElementById("demo2").value);
-   if(id1==id2)
-   {document.write("0");}
-   else
-   {document.write("1");}
+   var id2 = parseInt(document.getElementById("demo2").value)
+      result = (!(id1 && id2))
+      document.write(result);
+  
 }
