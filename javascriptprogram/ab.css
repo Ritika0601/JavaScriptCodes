@@ -1,0 +1,40 @@
+ 
+
+body {
+        background-color: #222;
+    }
+ 
+    .box {
+        background-color: #e06f6f;
+        height: 300px;
+        width: 250px;
+        border-radius: 10px;
+        position: relative;
+        top: 80px;
+        left: 40%;
+    }
+
+ 
+
+Preview
+
+  {
+        background-color: #222;
+        width: 220px;
+        position: relative;
+        left: 15px;
+        top: 20px;
+        height: 40px;
+    }
+ 
+    .display input {
+        position: relative;
+        left: 2px;
+        top: 2px;
+        height: 35px;
+        color: black;
+        background-color: #bccd95;
+        font-size: 21px;
+        text-align: right;
+        width:220px;
+    }
