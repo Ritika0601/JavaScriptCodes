@@ -1,7 +1,9 @@
 
+
 function calc()
 {
-	var headd = document.getElementsByTagName("head")[0];
+	 var btn = document.getElementsByTagName("button")[0];
+     btn.setAttribute("disabled","true");
 	var bodyy = document.getElementsByTagName("body")[0];
 	var divBody= document.createElement("div");
 	var divScreen = document.createElement("div");
@@ -46,6 +48,7 @@ function calc()
     
      bodyy.appendChild(divBody);
 
+
 }
  var arr=[];
  var index=0;
@@ -77,7 +80,8 @@ function numInput(num) {
 	else
 	{
       arr[index]= screen.value+num;
-      screen.value=dddtdtdtdtydffdsarr[index];
+      screen.value=arr[index];
+     
       index++;
 	}
    }
