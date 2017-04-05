@@ -15,6 +15,7 @@ function calc()
       var count=1;
       var operatorr=['+','-','/'];
       var oper1=['.','0','*','%'];
+      var oper2=['=','C','<','^'];
      for(var r=0;r<5;r++)
      {
      	var row = document.createElement("tr");
@@ -41,6 +42,14 @@ function calc()
                 else if(r==3 && c<4)
                 {
                     cellButton.setAttribute("value",oper1[c]);
+               column.appendChild(cellButton);
+               row.appendChild(column);
+
+                }
+
+                else if(r==4 && c<4)
+                {
+                  cellButton.setAttribute("value",oper2[c]);
                column.appendChild(cellButton);
                row.appendChild(column);
 
