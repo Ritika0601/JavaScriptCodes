@@ -11,8 +11,8 @@ function calc()
 	screen.setAttribute("type","text");
 	screen.setAttribute("value"," ");
 	screen.setAttribute("id","screen");
-	//screen.setAttribute("size","10");
-	//screen.setAttribute("maxLength","8");
+	screen.setAttribute("size","12");
+	screen.setAttribute("maxLength","20");
 	screen.setAttribute("readonly","");
 	divScreen.appendChild(screen);
 	divBody.appendChild(divScreen);
