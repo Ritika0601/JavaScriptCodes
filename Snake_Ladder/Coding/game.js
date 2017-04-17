@@ -9,10 +9,10 @@ function start()
     snakeBite=[38,54,62,87,92,98];
     snakeLow=[7,22,3,24,73,18];
     ladderStart=[4,9,21,28,63];
-    laaderUp=[35,48,58,96,84];
+    ladderUp=[35,48,58,96,84];
 
-	 gameBody = document.getElementsByTagName("body")[0];
-	 divBody = document.createElement("div");
+   gameBody = document.getElementsByTagName("body")[0];
+   divBody = document.createElement("div");
      divBody.align="center";
 
       player_1=document.createElement("input");
@@ -35,8 +35,8 @@ function start()
      divElement_1 = document.createElement("div");
      divElement_1.style.backgroundColor="red";
      divElement_1.textContent="Player 1";
-	   divElement_1.style.border="thin solid";
-	   divElement_1.style.height = "36px";
+     divElement_1.style.border="thin solid";
+     divElement_1.style.height = "36px";
        divElement_1.style.width = "51px";
        divElement_1.style.cssFloat="left";
        divElement_1.setAttribute("id","321");
@@ -58,36 +58,36 @@ function start()
                divBody.appendChild(dice);
 
     count =110;
-	for(var row=1;row<=10;row++)
-	{
+  for(var row=1;row<=10;row++)
+  {
 
-		divGameBody = document.createElement("div");
-		divGameBody.style.heigth="380px";
-		divGameBody.style.width="530px";
-		
-		if((row%2)!=0)
-		{
-	      count=count-10;
-		  for(var col=1;col<=10;col++)
-		{
-			
-		   divChild = document.createElement("div");
-		   divChild.setAttribute("id",count);
+    divGameBody = document.createElement("div");
+    divGameBody.style.heigth="380px";
+    divGameBody.style.width="530px";
+    
+    if((row%2)!=0)
+    {
+        count=count-10;
+      for(var col=1;col<=10;col++)
+    {
+      
+       divChild = document.createElement("div");
+       divChild.setAttribute("id",count);
 
-		       if((col%2)!=0)
-			     {  
-			       divChild.style.backgroundColor="#0099FF";
-		         }
-		        else
-		         {
+           if((col%2)!=0)
+           {  
+             divChild.style.backgroundColor="#0099FF";
+             }
+            else
+             {
                     divChild.style.backgroundColor="#00cc88";
-		         }
+             }
 
-			divChild.style.cssFloat="left";
+      divChild.style.cssFloat="left";
             divChild.style.height = "36px";
             divChild.style.width = "51px";
             divChild.style.border="thin solid";
-			divChild.style.paddingTop="15px";
+      divChild.style.paddingTop="15px";
            if(count ==100)
            {
             divChild.textContent="FINISH";
@@ -95,60 +95,60 @@ function start()
            }
            else
           {
-			        divChild.textContent=count;
-           }		    
-		    count--;
-			
-			divGameBody.appendChild(divChild);
+              divChild.textContent=count;
+           }        
+        count--;
+      
+      divGameBody.appendChild(divChild);
 
-		}
-		
-		   count++;
-		
-	   }
-	    
-	   else
-	    {
-	    	count =count -10;
+    }
+    
+       count++;
+    
+     }
+      
+     else
+      {
+        count =count -10;
 
-	    	for(var col=1;col<=10;col++)
-		     {
-			
-			    divChild = document.createElement("div");
-			    divChild.setAttribute("id",count);
-			
-			    if((col%2)!=0)
-			       {
+        for(var col=1;col<=10;col++)
+         {
+      
+          divChild = document.createElement("div");
+          divChild.setAttribute("id",count);
+      
+          if((col%2)!=0)
+             {
                     divChild.style.backgroundColor="#00cc88";
                    }
                  else
                     { 
-                     divChild.style.backgroundColor="#0099FF";	
+                     divChild.style.backgroundColor="#0099FF";  
                     }
-			         divChild.style.cssFloat="left";
+               divChild.style.cssFloat="left";
                      divChild.style.height = "36px";
                      divChild.style.width = "51px";
-			         divChild.style.border="thin solid";
-			         divChild.style.paddingTop="15px";
-			         divChild.textContent=count;
+               divChild.style.border="thin solid";
+               divChild.style.paddingTop="15px";
+               divChild.textContent=count;
 
-		             count++;
-			
-			        divGameBody.appendChild(divChild);
+                 count++;
+      
+              divGameBody.appendChild(divChild);
 
-		      }
-		             count--;
-		
+          }
+                 count--;
+    
 
 
-	    }
-		
+      }
+    
             divBody.appendChild(divGameBody);
         
 
-	}
+  }
 
-	  gameBody.appendChild(divBody);
+    gameBody.appendChild(divBody);
 
 }
 
@@ -157,11 +157,11 @@ function playing(id_play)
 {
      
     idd=id_play;
-	 if(idd==123)
-	  {
+   if(idd==123)
+    {
        countA++;
       console.log(countA);
-		      
+          
     console.log(countA);
       if(clickPlayer_2>=1)
       {
@@ -169,13 +169,13 @@ function playing(id_play)
 
       }
           
-	    player_1.style.background="#FFA07A"; //pink
-	    dice.setAttribute("onclick","roll(idd)");
+      player_1.style.background="#FFA07A"; //pink
+      dice.setAttribute("onclick","roll(idd)");
         console.log(idd);
       } 
      else if(idd==456)
       {
-      	countB++;
+        countB++;
         if(clickPlayer_1>=1)
         {
           player_1.style.background="#7FFF00";
@@ -190,22 +190,21 @@ function playing(id_play)
 
 function roll(x)
 {   
-	var id=x;
+  var id=x;
  
     if(id==123 && countA==1)
       {
          clickPlayer_1++;
-      	 number = (Math.round((Math.random()*5)+1));
+         number = (Math.round((Math.random()*5)+1));
          console.log(number);
-  	     if(number!=6)
-  	      {
+         if(number!=6)
+          {
            if((countPlayer_1)==0)
                {
                  countPlayer_1=countPlayer_1+number;
                  console.log(countPlayer_1);
-       	          if(countPlayer_1<=100)
+                  if(countPlayer_1<=100)
                    {
-
                      box = document.getElementById(countPlayer_1);
                      bgColor = box.style.getPropertyValue("background-color");
                      box.style.backgroundColor="red";
@@ -235,7 +234,7 @@ function roll(x)
                 if(countPlayer_1<=100)
                   {
                      var box =document.getElementById(countPlayer_1);
-      	             bgColor= box.style.getPropertyValue("background-color");
+                     bgColor= box.style.getPropertyValue("background-color");
                      box.style.backgroundColor="red";
                      if(countPlayer_1==4||9||21||28||63)
                      {
@@ -243,11 +242,12 @@ function roll(x)
                       box.setAttribute("onclick","ladder(countPlayer_1,123)");
                       console.log(444);
                      }
-                     
-
-
-                    console.log(countPlayer_1);
-      	          }
+                    
+                    else if(countPlayer_1==38||54||62||87||92||98)
+                      {
+                        box.setAttribute("onclick","snake(countPlayer_1,123)")
+                      }
+                  }
                 else
                   {
                     countPlayer_1=countPlayer_1-number;
@@ -287,17 +287,21 @@ function roll(x)
             {
                 box1 = document.getElementById(countPlayer_1);
                 box1.style.backgroundColor=bgColor;
-      	        countPlayer_1=countPlayer_1+number;
+                countPlayer_1=countPlayer_1+number;
                  if(countPlayer_1<=100)
                   {
-      	            var box =document.getElementById(countPlayer_1);
-      	            bgColor = box.style.getPropertyValue("background-color");
+                    var box =document.getElementById(countPlayer_1);
+                    bgColor = box.style.getPropertyValue("background-color");
                     box.style.backgroundColor="red";
                      if(countPlayer_1==9)
                      {
 
                       box.setAttribute("onclick","ladder(countPlayer_1,123)");
                       console.log(444);
+                     }
+                     else if(countPlayer_1==38||54||62||87||92||98)
+                     {
+                      box.setAttribute("onclick","snake(countPlayer_1,123)");
                      }
                   }
                  else
@@ -307,7 +311,7 @@ function roll(x)
                     box.style.backgroundColor="red";
                   }
             } 
-      	         countA=1; 
+                 countA=1; 
   }
                 dice.setAttribute("onclick","roll(123)");
 }
@@ -317,7 +321,7 @@ function roll(x)
       number = (Math.round((Math.random()*5)+1));
       console.log(number);
       if(number!=6)
-  	   {
+       {
          if((countPlayer_2)==0)
            {
             countPlayer_2=countPlayer_2+number;
@@ -356,6 +360,10 @@ function roll(x)
                       box.setAttribute("onclick","ladder(countPlayer_2,456)");
                       console.log(666);
                      }
+                     else if(countPlayer_2==38||54||62||87||92||98)
+                     {
+                      box.setAttribute("onclick","snake(countPlayer_2,456)");
+                     }
                }
               else
                {
@@ -371,7 +379,7 @@ function roll(x)
      { 
        if(countPlayer_2==0)
          {
-       	   countPlayer_2=countPlayer_2+number;
+           countPlayer_2=countPlayer_2+number;
            if(countPlayer_2<=100)
             {
               var box = document.getElementById(countPlayer_2);
@@ -394,6 +402,16 @@ function roll(x)
               var box =document.getElementById(countPlayer_2);
               bgColor = box.style.getPropertyValue("background-color");
               box.style.backgroundColor="yellow";
+              if(countPlayer_2==9)
+                     {
+
+                      box.setAttribute("onclick","ladder(countPlayer_2,456)");
+                      console.log(666);
+                     }
+                 else if(countPlayer_2==38||54||62||87||92||98)
+                 {
+                  box.setAttribute("onclick","snake(countPlayer_2,456)");
+                 }    
              }
              else
              {
@@ -414,10 +432,9 @@ function ladder(counterr,idd)
 {
    idLadder=idd;
    console.log(idd);
-   counterSanke=counterr;
-   console.log(counterId);
-    box3 = document.getElementById(counterSnake);
-   if(counterSnake%2==0)
+   counterLadder=counterr;
+    box3 = document.getElementById(counterLadder);
+   if(counterLadder%2==0)
    {
     box3.style.backgroundColor="#0099FF";
    }
@@ -427,10 +444,10 @@ function ladder(counterr,idd)
    }
    for(s=0;s<ladderStart.length;s++)
    {
-     if(counterSnake==ladderStart[s])
+     if(counterLadder==ladderStart[s])
      {
-       counterSnake=laaderUp[s];
-       box = document.getElementById(counterSnake);
+       counterLadder=ladderUp[s];
+       box = document.getElementById(counterLadder);
        bgColor = box.style.getPropertyValue("background-color");
        console.log(bgColor);
        if(idLadder==123)
@@ -445,17 +462,55 @@ function ladder(counterr,idd)
    }
    if(idLadder==123)
    {
-     countPlayer_1=counterSnake;
+     countPlayer_1=counterLadder;
    }
    else if(idLadder==456)
+   {
+    countPlayer_2=counterLadder;
+   }
+
+}
+
+function snake(counteer,idd)
+{
+  idSnake=idd;
+   console.log(idSnake);
+   counterSnake=counteer;
+    box3 = document.getElementById(counterSnake);
+   if(counterSnake%2==0)
+   {
+    box3.style.backgroundColor="#0099FF";
+   }
+   else
+   {
+    box3.style.backgroundColor="#00cc88";
+   }
+   for(s=0;s<snakeBite.length;s++)
+   {
+     if(counterSnake==snakeBite[s])
+     {
+       counterSnake=snakeLow[s];
+       box = document.getElementById(counterSnake);
+       bgColor = box.style.getPropertyValue("background-color");
+       console.log(bgColor);
+       if(idSanke==123)
+       {
+       box.style.backgroundColor="red";
+       }
+       else if(idSanke==456)
+       {
+        box.style.backgroundColor="yellow";
+       }
+     }
+   }
+   if(idSanke==123)
+   {
+     countPlayer_1=counterSnake;
+   }
+   else if(idSnake==456)
    {
     countPlayer_2=counterSnake;
    }
 
 
-}
-
-function snake(counteer,idSnake)
-{
-  
 }
