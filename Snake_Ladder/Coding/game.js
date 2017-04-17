@@ -6,14 +6,14 @@ function start()
     bgColor="";
     countA=0;
     countB=0;
-	
+    snakeBite=[38,54,62,87,92,98];
+    snakeLow=[7,22,3,24,73,18];
+    ladderStart=[4,9,21,28,63];
+    laaderUp=[35,48,58,96,84];
+
 	 gameBody = document.getElementsByTagName("body")[0];
 	 divBody = document.createElement("div");
      divBody.align="center";
-     //play =document.createElement("input");
-     //play.setAttribute("type","button");
-    // play.setAttribute("value","Start Playing");
-     //play.setAttribute("onclick","playing()");
 
       player_1=document.createElement("input");
      player_1.setAttribute("type","button");
@@ -34,6 +34,7 @@ function start()
 
      divElement_1 = document.createElement("div");
      divElement_1.style.backgroundColor="red";
+     divElement_1.textContent="Player 1";
 	   divElement_1.style.border="thin solid";
 	   divElement_1.style.height = "36px";
        divElement_1.style.width = "51px";
@@ -44,6 +45,7 @@ function start()
             divElement_2 = document.createElement("div");
             divElement_2.setAttribute("id","654");
             divElement_2.style.backgroundColor="yellow";
+            divElement_2.textContent="Player 2";
             divElement_2.style.height = "36px";
             divElement_2.style.width = "51px";
             divElement_2.style.cssFloat="left";
@@ -71,8 +73,9 @@ function start()
 			
 		   divChild = document.createElement("div");
 		   divChild.setAttribute("id",count);
+
 		       if((col%2)!=0)
-			     {
+			     {  
 			       divChild.style.backgroundColor="#0099FF";
 		         }
 		        else
@@ -85,8 +88,15 @@ function start()
             divChild.style.width = "51px";
             divChild.style.border="thin solid";
 			divChild.style.paddingTop="15px";
-			divChild.textContent=count;
-		    
+           if(count ==100)
+           {
+            divChild.textContent="FINISH";
+            divChild.style.backgroundColor="#C6C3E3";
+           }
+           else
+          {
+			        divChild.textContent=count;
+           }		    
 		    count--;
 			
 			divGameBody.appendChild(divChild);
@@ -145,11 +155,15 @@ function start()
 
 function playing(id_play)
 {
+     
     idd=id_play;
 	 if(idd==123)
 	  {
-		countA++;
-      if(clickPlayer_2==1)
+       countA++;
+      console.log(countA);
+		      
+    console.log(countA);
+      if(clickPlayer_2>=1)
       {
         player_2.style.background="#7FFF00"; //green
 
@@ -162,7 +176,7 @@ function playing(id_play)
      else if(idd==456)
       {
       	countB++;
-        if(clickPlayer_1==1)
+        if(clickPlayer_1>=1)
         {
           player_1.style.background="#7FFF00";
         }
@@ -170,137 +184,278 @@ function playing(id_play)
         dice.setAttribute("onclick","roll(idd)");
         console.log(idd);
        }
-      }
+ }
 
 
 
 function roll(x)
 {   
 	var id=x;
-	console.log(id);
-   
-     if(id==123 && countA==1)
+ 
+    if(id==123 && countA==1)
       {
          clickPlayer_1++;
       	 number = (Math.round((Math.random()*5)+1));
          console.log(number);
-  	    if(number!=6)
-  	     {
-       
-            if((countPlayer_1)==0)
-             {
+  	     if(number!=6)
+  	      {
+           if((countPlayer_1)==0)
+               {
+                 countPlayer_1=countPlayer_1+number;
+                 console.log(countPlayer_1);
+       	          if(countPlayer_1<=100)
+                   {
 
-       	        countPlayer_1=countPlayer_1+number;
-       	        console.log(countPlayer_1);
-                var box = document.getElementById(countPlayer_1);
-                bgColor1 = box.style.getPropertyValue("background-color");
-                box.style.backgroundColor="red";
-                //countPlayer_1++;
-
-     
-              }
-      
-              else if((countPlayer_1)!=0)
-              {
-              	//countPlayer_1=countPlayer_1+number-1;
-                countPlayer_1=countPlayer_1+number;
-      	        var box =document.getElementById(countPlayer_1);
-      	        bgColor2 = box.style.getPropertyValue("background-color");
-      	        box.style.backgroundColor="red";
-      	       //countPlayer_1++;
-               console.log(countPlayer_1);
-              }
-             countA=0;
-
-         }
-
-       else if(number==6)
-        { 
-           if(countPlayer_1==0)
-            {
-              
-       	      countPlayer_1=countPlayer_1+number;
-              var box = document.getElementById(countPlayer_1);
-               bgColor = box.style.getPropertyValue("background-color");
-              box.style.backgroundColor="red";
-              countPlayer_1++;
-              console.log(countPlayer_1);
-            }
-     
-            else if(countPlayer_1!=0)
-            {
-      	     countPlayer_1=countPlayer_1+number-1;
-             console.log(countPlayer_1);
-      	     var box =document.getElementById(countPlayer_1);
-      	     bgColor = box.style.getPropertyValue("background-color");
-             box.style.backgroundColor="red";
-             countPlayer_1++;
-             console.log(countPlayer_1++);
-      	     
-            }
-         dice.setAttribute("onclick","roll(123)");
-
-          countA=1;
-        }
-       
-
-      }
-      else if(id==456 && countB==1)
-        {
-          clickPlayer_2++;
-        	 number = (Math.round((Math.random()*5)+1));
-             console.log(number);
-  	           if(number!=6)
-  	             {
-                    if((countPlayer_2)==0)
-                  {
-                   
-             	    countPlayer_2=countPlayer_2+number;
-                    var box = document.getElementById(countPlayer_2);
-                    bgColor = box.style.getPropertyValue("background-color");
-                    box.style.backgroundColor="yellow";
-                    countPlayer_2++; //
-                    console.log(countPlayer_2);
-                   }
-      
-                   else if((countPlayer_2)!=0)
+                     box = document.getElementById(countPlayer_1);
+                     bgColor = box.style.getPropertyValue("background-color");
+                     box.style.backgroundColor="red";
+                     if(countPlayer_1==4)
                      {
-                       countPlayer_2=countPlayer_2+number-1;
-      	              console.log(countPlayer_2);
-      	              var box =document.getElementById(countPlayer_2);
-      	              bgColor = box.style.getPropertyValue("background-color");
-      	              box.style.backgroundColor="yellow";
-      	              countPlayer_2++;
-                      console.log(countPlayer_2);
-                     }
-                     countB=0;
 
-                     
+                      box.setAttribute("onclick","ladder(countPlayer_1,123)");
+                      console.log(444);
+                     }
                    }
-                  
+                  else
+                   {
+                     console.log(1212);
+                     countPlayer_1=countPlayer_1-number;
+                     var box =document.getElementById(countPlayer_1);
+                     box.style.backgroundColor="red";
+                     console.log(countPlayer_1);
+                   } 
+                
+               }
+      
+            else if((countPlayer_1)!=0)
+              {
+               box1 = document.getElementById(countPlayer_1);
+               box1.style.backgroundColor=bgColor;
+               countPlayer_1=countPlayer_1+number;
+                if(countPlayer_1<=100)
+                  {
+                     var box =document.getElementById(countPlayer_1);
+      	             bgColor= box.style.getPropertyValue("background-color");
+                     box.style.backgroundColor="red";
+                     if(countPlayer_1==4||9||21||28||63)
+                     {
 
-                  else if(number==6)
-                    { 
-                      if(countPlayer_2==0)
-                       {
-       	                 countPlayer_2=countPlayer_2+number;
-                         var box = document.getElementById(countPlayer_2);
-                         bgColor = box.style.getPropertyValue("background-color");
-                         box.style.backgroundColor="yellow";
-                         countPlayer_2++;
-                         console.log(countPlayer_2);
-                        }
-     
-                         else if(countPlayer_2!=0)
-                         {
-                         	countPlayer_2=countPlayer_2+number-1;
-                          var box =document.getElementById(countPlayer_2);
-                          bgColor = box.style.getPropertyValue("background-color");
-                          box.style.backgroundColor="yellow";
-      	                  countPlayer_2++;
-                          console.log(countPlayer_2);
-                         }
-                         countB=1;
+                      box.setAttribute("onclick","ladder(countPlayer_1,123)");
+                      console.log(444);
                      }
- }
+                     
+
+
+                    console.log(countPlayer_1);
+      	          }
+                else
+                  {
+                    countPlayer_1=countPlayer_1-number;
+                    var box =document.getElementById(countPlayer_1);
+                    box.style.backgroundColor="red";
+                    console.log(countPlayer_1);
+                  }
+               
+              }
+            
+                     console.log(countA);
+                     countA=0;
+          }
+
+  else if(number==6)
+    { 
+          if(countPlayer_1==0)
+          {
+             countPlayer_1=countPlayer_1+number;
+              if(countPlayer_1<=100)
+                {
+                  var box = document.getElementById(countPlayer_1);
+                  bgColor = box.style.getPropertyValue("background-color");
+                  box.style.backgroundColor="red";
+                   
+                }
+              else
+               {
+                  countPlayer_1=countPlayer_1-number;
+                  var box =document.getElementById(countPlayer_1);
+                  box.style.backgroundColor="red";
+               }
+              
+          }
+     
+          else if(countPlayer_1!=0)
+            {
+                box1 = document.getElementById(countPlayer_1);
+                box1.style.backgroundColor=bgColor;
+      	        countPlayer_1=countPlayer_1+number;
+                 if(countPlayer_1<=100)
+                  {
+      	            var box =document.getElementById(countPlayer_1);
+      	            bgColor = box.style.getPropertyValue("background-color");
+                    box.style.backgroundColor="red";
+                     if(countPlayer_1==9)
+                     {
+
+                      box.setAttribute("onclick","ladder(countPlayer_1,123)");
+                      console.log(444);
+                     }
+                  }
+                 else
+                  {
+                    countPlayer_1=countPlayer_1-number;
+                    var box =document.getElementById(countPlayer_1);
+                    box.style.backgroundColor="red";
+                  }
+            } 
+      	         countA=1; 
+  }
+                dice.setAttribute("onclick","roll(123)");
+}
+ else if(id==456 && countB==1)
+   {
+      clickPlayer_2++;
+      number = (Math.round((Math.random()*5)+1));
+      console.log(number);
+      if(number!=6)
+  	   {
+         if((countPlayer_2)==0)
+           {
+            countPlayer_2=countPlayer_2+number;
+            if(countPlayer_2<=100)
+             {
+               var box = document.getElementById(countPlayer_2);
+               bgColor = box.style.getPropertyValue("background-color");
+               box.style.backgroundColor="yellow";
+                if(countPlayer_2==4)
+                     {
+
+                      box.setAttribute("onclick","ladder(countPlayer_2,456)");
+                      console.log(666);
+                     }
+              }
+             else
+             {
+               countPlayer_2=countPlayer_2-number;
+               var box =document.getElementById(countPlayer_2);
+               box.style.backgroundColor="yellow";
+             }
+            }
+         else if((countPlayer_2)!=0)
+          {
+              box2 = document.getElementById(countPlayer_2);
+              box2.style.backgroundColor=bgColor;
+              countPlayer_2=countPlayer_2+number;
+              if(countPlayer_2<=100)
+               {
+                 var box =document.getElementById(countPlayer_2);
+                 bgColor= box.style.getPropertyValue("background-color");
+                 box.style.backgroundColor="yellow";
+                  if(countPlayer_2==4||9||21||28||63)
+                     {
+
+                      box.setAttribute("onclick","ladder(countPlayer_2,456)");
+                      console.log(666);
+                     }
+               }
+              else
+               {
+                 countPlayer_2=countPlayer_2-number;
+                 var box =document.getElementById(countPlayer_2);
+                 box.style.backgroundColor="yellow";
+               }
+          }
+                countB=0;
+
+        }
+    else if(number==6)
+     { 
+       if(countPlayer_2==0)
+         {
+       	   countPlayer_2=countPlayer_2+number;
+           if(countPlayer_2<=100)
+            {
+              var box = document.getElementById(countPlayer_2);
+              bgColor = box.style.getPropertyValue("background-color");
+              box.style.backgroundColor="yellow";
+            }
+           else{
+                countPlayer_2=countPlayer_2-number;
+                var box =document.getElementById(countPlayer_2);
+                box.style.backgroundColor="yellow";
+               }
+          }
+        else if(countPlayer_2!=0)
+          {
+            box2 = document.getElementById(countPlayer_2);
+            box2.style.backgroundColor=bgColor;
+            countPlayer_2=countPlayer_2+number;
+            if(countPlayer_2<=100)
+             {
+              var box =document.getElementById(countPlayer_2);
+              bgColor = box.style.getPropertyValue("background-color");
+              box.style.backgroundColor="yellow";
+             }
+             else
+             {
+              countPlayer_2=countPlayer_2-number;
+              var box =document.getElementById(countPlayer_2);
+              box.style.backgroundColor="yellow";
+             }
+           }
+              dice.setAttribute("onclick","roll(456)");
+             countB=1;
+       }
+   
+    }
+
+}
+
+function ladder(counterr,idd)
+{
+   idLadder=idd;
+   console.log(idd);
+   counterSanke=counterr;
+   console.log(counterId);
+    box3 = document.getElementById(counterSnake);
+   if(counterSnake%2==0)
+   {
+    box3.style.backgroundColor="#0099FF";
+   }
+   else
+   {
+    box3.style.backgroundColor="#00cc88";
+   }
+   for(s=0;s<ladderStart.length;s++)
+   {
+     if(counterSnake==ladderStart[s])
+     {
+       counterSnake=laaderUp[s];
+       box = document.getElementById(counterSnake);
+       bgColor = box.style.getPropertyValue("background-color");
+       console.log(bgColor);
+       if(idLadder==123)
+       {
+       box.style.backgroundColor="red";
+       }
+       else if(idLadder==456)
+       {
+        box.style.backgroundColor="yellow";
+       }
+     }
+   }
+   if(idLadder==123)
+   {
+     countPlayer_1=counterSnake;
+   }
+   else if(idLadder==456)
+   {
+    countPlayer_2=counterSnake;
+   }
+
+
+}
+
+function snake(counteer,idSnake)
+{
+  
 }
