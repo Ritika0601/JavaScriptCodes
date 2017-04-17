@@ -195,18 +195,19 @@ function roll(x)
                 var box = document.getElementById(countPlayer_1);
                 bgColor1 = box.style.getPropertyValue("background-color");
                 box.style.backgroundColor="red";
-                countPlayer_1++;
+                //countPlayer_1++;
 
      
               }
       
               else if((countPlayer_1)!=0)
               {
-              	countPlayer_1=countPlayer_1+number-1;
+              	//countPlayer_1=countPlayer_1+number-1;
+                countPlayer_1=countPlayer_1+number;
       	        var box =document.getElementById(countPlayer_1);
       	        bgColor2 = box.style.getPropertyValue("background-color");
       	        box.style.backgroundColor="red";
-      	       countPlayer_1++;
+      	       //countPlayer_1++;
                console.log(countPlayer_1);
               }
              countA=0;
@@ -258,7 +259,7 @@ function roll(x)
                     var box = document.getElementById(countPlayer_2);
                     bgColor = box.style.getPropertyValue("background-color");
                     box.style.backgroundColor="yellow";
-                    
+                    countPlayer_2++; //
                     console.log(countPlayer_2);
                    }
       
