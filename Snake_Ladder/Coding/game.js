@@ -1,5 +1,7 @@
 function start()
-{    countPlayer_1=0;
+{   accessPlayer_1=1;
+    accessPlayer_2=1; 
+    countPlayer_1=0;
     countPlayer_2=0;
     clickPlayer_1=0;
     clickPlayer_2=0;
@@ -80,7 +82,7 @@ function start()
              }
             else
              {
-                    divChild.style.backgroundColor="#00cc88";
+              divChild.style.backgroundColor="#00cc88";
              }
 
       divChild.style.cssFloat="left";
@@ -157,49 +159,53 @@ function playing(id_play)
 {
      
     idd=id_play;
-   if(idd==123)
-    {
+    console.log(idd);
+   if(idd==123 && accessPlayer_1==1)
+    { 
        countA++;
       console.log(countA);
-          
-    console.log(countA);
       if(clickPlayer_2>=1)
       {
         player_2.style.background="#7FFF00"; //green
-
-      }
-          
+      }     
       player_1.style.background="#FFA07A"; //pink
       dice.setAttribute("onclick","roll(idd)");
-        console.log(idd);
-      } 
-     else if(idd==456)
+      }
+      else if(idd==123 && accessPlayer_1!=1)
       {
-        countB++;
-        if(clickPlayer_1>=1)
+         alert("Player Two Turn");
+
+      } 
+       else if(idd==456 && accessPlayer_2==1)
         {
-          player_1.style.background="#7FFF00";
-        }
-        player_2.style.background="#FFA07A";
-        dice.setAttribute("onclick","roll(idd)");
-        console.log(idd);
+           countB++;
+           if(clickPlayer_1>=1)
+          {
+            player_1.style.background="#7FFF00";
+          }
+          player_2.style.background="#FFA07A";
+          dice.setAttribute("onclick","roll(idd)");
+          console.log(idd);
        }
- }
-
-
+       else if(idd==456 && accessPlayer_2!=1)
+       {
+        alert("Player One Turn");
+       }
+}
 
 function roll(x)
 {   
   var id=x;
- 
+    console.log(123123);
     if(id==123 && countA==1)
       {
-         clickPlayer_1++;
+        accessPlayer_2=1;
+        clickPlayer_1++;
          number = (Math.round((Math.random()*5)+1));
          console.log(number);
          if(number!=6)
           {
-           if((countPlayer_1)==0)
+           if((countPlayer_1)==0) //countPlayer_1 is used to shift player in div
                {
                  countPlayer_1=countPlayer_1+number;
                  console.log(countPlayer_1);
@@ -262,12 +268,12 @@ function roll(x)
                      countA=0;
           }
 
-  else if(number==6)
-    { 
-          if(countPlayer_1==0)
-          {
-             countPlayer_1=countPlayer_1+number;
-              if(countPlayer_1<=100)
+           else if(number==6)
+            { 
+              if(countPlayer_1==0)
+            {  
+                countPlayer_1=countPlayer_1+number;
+                if(countPlayer_1<=100)
                 {
                   var box = document.getElementById(countPlayer_1);
                   bgColor = box.style.getPropertyValue("background-color");
@@ -311,12 +317,16 @@ function roll(x)
                     box.style.backgroundColor="red";
                   }
             } 
-                 countA=1; 
-  }
-                dice.setAttribute("onclick","roll(123)");
-}
- else if(id==456 && countB==1)
-   {
+                countA=1;
+                
+                dice.setAttribute("onclick","roll(123)"); 
+      }
+    accessPlayer_1=0;
+      }
+
+    else if(id==456 && countB==1)
+     {
+      accessPlayer_1=1;
       clickPlayer_2++;
       number = (Math.round((Math.random()*5)+1));
       console.log(number);
@@ -420,11 +430,14 @@ function roll(x)
               box.style.backgroundColor="yellow";
              }
            }
-              dice.setAttribute("onclick","roll(456)");
+             
              countB=1;
+             dice.setAttribute("onclick","roll(456)");
        }
-   
+       accessPlayer_2=0;
+       
     }
+
 
 }
 
@@ -468,8 +481,8 @@ function ladder(counterr,idd)
    {
     countPlayer_2=counterLadder;
    }
-
 }
+
 
 function snake(counteer,idd)
 {
@@ -511,6 +524,4 @@ function snake(counteer,idd)
    {
     countPlayer_2=counterSnake;
    }
-
-
 }
