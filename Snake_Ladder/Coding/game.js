@@ -58,6 +58,18 @@ function start()
                dice.setAttribute("type","button");
                dice.setAttribute("value","Rolling");
                divBody.appendChild(dice);
+ 
+               divImage= document.createElement("div");
+               divImage.setAttribute("id","789");
+               divImage.style.height="100px";
+               divImage.style.width="100px";
+               divImage.style.marginTop="20px";
+               divImage.style.marginLeft="5px";
+               divImage.style.marginRight="80px"
+               divImage.style.cssFloat="right";
+               im =document.createElement("img");
+               im.setAttribute("id","987");
+               divImage.appendChild(im);
 
     count =110;
   for(var row=1;row<=10;row++)
@@ -149,7 +161,7 @@ function start()
         
 
   }
-
+    gameBody.appendChild(divImage);
     gameBody.appendChild(divBody);
 
 }
