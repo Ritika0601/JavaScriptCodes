@@ -1,18 +1,59 @@
 
-#myDIV {
-    width: 51px;
-    height: 51px;
-    background: red;
+* Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+}
+/* Tabled Portrait */
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
+header
+{
+	height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: Black;
+	text-align: center;
+	text-shadow: 
+	font-weight:bold;
+	font-family: fantasy;
+	font-size: 60px;
+
+}
+footer
+{   
+	width: 150px;
+	height: 0px;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	padding-right: 550px;
+	padding-left: 700px;
+	color: Black;
+	text-align: center;
+	text-shadow: 
+	font-weight:bold;
+	font-family: fantasy;
+	font-size: 100px;
+
+
+}
+
+{
     position: relative;
-    animation: mymove 1s infinite;
+    margin: 2em;
+} 
+
+.parent img{
+    position: absolute;
 }
 
-@keyframes mymove {
-    from {left: 0px;}
-    to {left: 200px;}
+.parent .overlay{
+    position: absolute;
+    top: -1em;
+    text-align: center;    
+    width: 100%;
 }
 
-@keyframes mynewmove {
-    from {top: 0px;}
-    to {top: 200px;}
-}
+              

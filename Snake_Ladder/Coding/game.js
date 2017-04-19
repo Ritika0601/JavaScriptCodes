@@ -54,9 +54,11 @@ function start()
             divElement_2.style.border="thin solid";
             divBody.appendChild(divElement_2);
      
-               dice =document.createElement("input");
-               dice.setAttribute("type","button");
-               dice.setAttribute("value","Rolling");
+               dice =document.createElement("button");
+              dice.setAttribute("type","button");
+              // dice.setAttribute("value","Rolling");
+               dice.src="/Images/full.jpeg";
+               dice.style.backgroundImage="url('../Images/full.jpeg')";
                divBody.appendChild(dice);
 
     count =110;
@@ -524,4 +526,3 @@ function snake(counteer,idd)
    {
     countPlayer_2=counterSnake;
    }
-}
